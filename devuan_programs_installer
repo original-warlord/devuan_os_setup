@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+
+sudo apt install bat gnucash vlc wireshark audacity kdenlive pavucontrol bluefish kleopatra emacs kate sox terminator bmon htop gparted gimp nmap ufw wget rsync libsox-fmt-mp3 -y
+
+echo "Base packages installed"
+
+sleep 3
+
+echo "Installing viertualization tools (QEMU-KVM, Virt-Manager)"
+
+sudo apt install qemu-system-x86 virt-manager virt-install libguestfs-tools bridge-utils -y
+
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER
+
+sleep 3
+
+echo "Installing SSH server and setting up SSH."
+
+sudo apt install openssh-server openssh-client -y
+sudo service ssh start
+
+sleep 3 
+
+echo "Installation complete."
+
+sleep 5
+
+exit

@@ -1,0 +1,25 @@
+#! /bin/env bash
+
+
+sudo apt install sudo 
+
+sudo usermod -aG sudo $USER
+
+sudo usermod -aG root $USER
+
+
+sudo sh -c 'echo "# deb cdrom:[Devuan GNU/Linux 6.1.0 excalibur amd64 - desktop 20251225]/ excalibur contrib main non-free non-free-firmware" > /etc/apt/sources.list'
+
+sudo sh -c 'echo " " >> /etc/apt/sources.list'
+
+sudo sh -c 'echo "deb http://deb.devuan.org/merged excalibur main" >> /etc/apt/sources.list'
+
+sudo sh -c 'echo "deb http://deb.devuan.org/merged excalibur-updates main" >> /etc/apt/sources.list'
+
+sudo sh -c 'echo "deb http://deb.devuan.org/merged excalibur-security main" >> /etc/apt/sources.list'
+
+sudo sh -c 'echo "# deb http://deb.devuan.org/merged excalibur-backports main" >> /etc/apt/sources.list'
+
+echo "Reboot now for changes to apply."
+
+sleep 10
